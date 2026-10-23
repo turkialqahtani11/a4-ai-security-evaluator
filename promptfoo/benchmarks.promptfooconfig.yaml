@@ -1,0 +1,34 @@
+# Promptfoo config for the three A4 instructor benchmark categories (local Ollama only).
+#
+# The test inputs and rubric terms are NOT in this repository. They are loaded from
+# promptfoo/benchmarks.local.yaml (git-ignored), which you create from
+# promptfoo/benchmarks.local.yaml.example using the authorized course materials.
+#
+#   cd promptfoo
+#   promptfoo validate -c benchmarks.promptfooconfig.yaml
+#   promptfoo eval -c benchmarks.promptfooconfig.yaml --repeat 5 --no-cache --no-share -j 1 \
+#     --output ../reports/promptfoo/benchmarks.html \
+#     --output ../reports/promptfoo/benchmarks.json \
+#     --output ../reports/promptfoo/benchmarks.csv
+
+description: A4 benchmark categories — rubric assertion mirrors a4sec (local Ollama)
+
+prompts:
+  - "{{prompt}}"
+
+providers:
+  - id: ollama:chat:llama3.2
+    label: llama3.2
+    config:
+      temperature: 0
+  - id: ollama:chat:qwen2.5:3b
+    label: qwen2.5:3b
+    config:
+      temperature: 0
+
+defaultTest:
+  assert:
+    - type: javascript
+      value: file://assertions/rubric_score.js
+
+tests: file://benchmarks.local.yaml

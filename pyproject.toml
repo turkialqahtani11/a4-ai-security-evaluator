@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "a4sec"
+version = "1.0.0"
+description = "Local, auditable AI security evaluation CLI for Ollama models (PSU ASCL Day 4 / A4)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Turki Alqahtani" }]
+dependencies = [
+  "httpx>=0.27",
+  "PyYAML>=6.0",
+  "pydantic>=2.6",
+  "typer>=0.12",
+  "rich>=13.7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+a4sec = "a4sec.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"

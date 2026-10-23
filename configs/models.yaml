@@ -1,0 +1,7 @@
+# Local Ollama models used by `a4sec compare` (when no --model flags are given)
+# and listed by `a4sec doctor`. Install with `ollama pull <tag>`.
+models:
+  - tag: llama3.2
+    role: primary
+  - tag: qwen2.5:3b
+    role: comparison

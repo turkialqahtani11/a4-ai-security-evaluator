@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+.venv-*/
+venv/
+build/
+dist/
+
+# Private / local benchmark material — NEVER commit
+configs/*.local.yaml
+configs/*.local.yml
+configs/*.local.json
+configs/regression*.yaml
+promptfoo/*.local.yaml
+promptfoo/benchmarks.local.yaml
+
+# Generated evidence (raw model outputs may be sensitive). Keep the folders only.
+reports/json/*
+reports/csv/*
+reports/evidence/*
+reports/*.md
+!reports/**/.gitkeep
+
+# Tool outputs copied into the repo
+promptfoo/redteam.yaml
+promptfoo/reports/
+garak/reports/
+*.jsonl
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
